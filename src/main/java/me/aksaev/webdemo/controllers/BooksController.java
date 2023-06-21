@@ -57,8 +57,9 @@ public class BooksController {
 
     // Удаление книги по идентификатору
     @DeleteMapping("{id}") // DELETE http://localhost:8080/books/23
-    public Book deleteBook(@PathVariable Long id) {
-        return bookService.deleteBook(id);
+    public ResponseEntity deleteBook(@PathVariable Long id) {
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 
 }
