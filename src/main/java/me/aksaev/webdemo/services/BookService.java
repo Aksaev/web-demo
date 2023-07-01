@@ -38,4 +38,20 @@ public class BookService {
     public Collection<Book> getAllBooks() {
         return bookRepository.findAll();
     }
+
+    // Поиск по названию книги
+    public Book findByName(String name) {
+        return bookRepository.findByNameIgnoreCase(name);
+    }
+
+    // Поиск по автору книги
+    public Collection<Book> findByAuthor(String author) {
+        return bookRepository.findBookByAuthorContainingIgnoreCase(author);
+    }
+
+    // Поиск по части названия книги
+    public Collection<Book> findByNamePart(String part) {
+        return bookRepository.findAllByNameContainsIgnoreCase(part);
+    }
+
 }
